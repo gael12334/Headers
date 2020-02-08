@@ -19,10 +19,10 @@ template <class T> struct XyCoord {
         	return (x * xy.x) + (y * xy.y);
     	}
 
-    template <class Ti> virtual inline Ti GetAngleBetween(XyCoord<T> xy) {
-        static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        return acos(DotProduct<Ti>(xy) / (Norm<Ti>() * xy.Norm<Ti>()));
-    }
+	template <class Ti> virtual inline Ti GetAngleBetween(XyCoord<T> xy) {
+        	static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
+        	return acos(DotProduct<Ti>(xy) / (Norm<Ti>() * xy.Norm<Ti>()));
+	}
 	
 	virtual XyCoord<T>& operator+=(XyCoord<T> xy) {
 		x += xy.x;
@@ -38,36 +38,33 @@ template <class T> struct XyCoord {
 	
 	template <class Ti> virtual XyCoord<T>& operator*=(Ti integer_v) {
 		static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        x *= integer_v;
-        y *= integer_v;
-        return this;
+		x *= integer_v;
+		y *= integer_v;
+        	return this;
 	}
 
-    template <class Ti> virtual XyCoord<T>& operator/=(Ti integer_v) {
+	template <class Ti> virtual XyCoord<T>& operator/=(Ti integer_v) {
 		static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        x /= integer_v;
-        y /= integer_v;
-        return this;
+		x /= integer_v;
+		y /= integer_v;
+		return this;
 	}
 
-    inline virtual XyCoord<T> operator+(XyCoord<T> xy)
-    {
-        return XyCoord<T>(xy.x + x, xy.y + y);
-    }
+    	inline virtual XyCoord<T> operator+(XyCoord<T> xy) {
+     	   	return XyCoord<T>(xy.x + x, xy.y + y);
+    	}
 
-    inline virtual XyCoord<T> operator-(XyCoord<T> xy)
-    {
-        return XyCoord<T>(xy.x - x, xy.y - y);
-    }
+    	inline virtual XyCoord<T> operator-(XyCoord<T> xy) {
+    		return XyCoord<T>(xy.x - x, xy.y - y);
+    	}
 
-    inline virtual XyCoord<T> operator*(XyCoord<T> xy)
-    {
-        return DotProduct(xy);
-    }
+    	inline virtual XyCoord<T> operator*(XyCoord<T> xy) {
+        	return DotProduct(xy);
+    	}
 
-    template <class Ti> virtual XyCoord<T>& operator* (Ti integer_v) {
+    	template <class Ti> virtual XyCoord<T>& operator* (Ti integer_v) {
 		static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        return XyCoord<T>(x * integer_v, y * integer_v);;
+        	return XyCoord<T>(x * integer_v, y * integer_v);;
 	}
 };
 template <class T> using XySize = XyCoord<T>;
