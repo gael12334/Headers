@@ -58,7 +58,7 @@ template <class T> struct XyCoord {
 
     inline virtual XyCoord<T> operator-(XyCoord<T> xy)
     {
-        return XyCoord<T>(xy.x - x, xy.y - y);
+        return XyCoord<T>(xy.x - x, xy.y - y); 
     }
 
     inline virtual XyCoord<T> operator*(XyCoord<T> xy)
