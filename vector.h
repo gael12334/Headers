@@ -162,5 +162,5 @@ template <class T> using Vector3D = XyzCoord<T>;
 
 void test()
 {
-    XyCoord<float> d = XyCoord<float>(3.44, 25.5);
+    XyCoord<float> d = XyCoord<float>(3.44, 25.66);
 }
