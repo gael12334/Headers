@@ -148,7 +148,7 @@ template <class T> struct XyzCoord : public XyCoord<T> {
     inline XyzCoord<T> operator*(XyzCoord<T> xyz)
     {
         return DotProduct(xyz);
-    }
+    } 
 
     template <class Ti> inline XyzCoord<T>& operator* (Ti integer_v) {
 		static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
