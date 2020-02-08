@@ -73,89 +73,85 @@ template <class T> using Vector2D = XyCoord<T>;
 template <class T> struct XyzCoord : public XyCoord<T> {
 	static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this structure.");
 
-    T z;
+    	T z;
 	XyzCoord(T x, T y, T z) : XyCoord(x, y) {
-        this->z = z;
+        	this->z = z;
 	}
 
-    XyzCoord() : XyCoord(0, 0) {
-        this->z = 0;
-    }
+   	XyzCoord() : XyCoord(0, 0) {
+        	this->z = 0;
+    	}
 	
 	template <class Ti> inline Ti Norm() {
 		static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.")
 		return (Ti)sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
 	}
 
-    template <class Ti> inline Ti DotProduct(XyzCoord<T> xyz) {
-        static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        return (x * xyz.x) + (y * xyz.y) + (z * xyz.z);
-    }
+    	template <class Ti> inline Ti DotProduct(XyzCoord<T> xyz) {
+        	static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
+        	return (x * xyz.x) + (y * xyz.y) + (z * xyz.z);
+    	}	
 
-    inline XyzCoord<T> CrossProduct(XyzCoord<T> xyz) {
-        return XyzCoord<T>(y * xyz.z - z * xyz.y, z * xyz.x - x * xyz.z, x * xyz.y - y * xyz.x);
-    }
+    	inline XyzCoord<T> CrossProduct(XyzCoord<T> xyz) {
+        	return XyzCoord<T>(y * xyz.z - z * xyz.y, z * xyz.x - x * xyz.z, x * xyz.y - y * xyz.x);
+    	}
 
-    template <class Ti> inline Ti GetAngleBetween(XyzCoord<T> xyz) {
-        static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        return acos(DotProduct<Ti>(xyz) / (Norm<Ti>() * xyz.Norm<Ti>()));
-    }
+    	template <class Ti> inline Ti GetAngleBetween(XyzCoord<T> xyz) {
+        	static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
+        	return acos(DotProduct<Ti>(xyz) / (Norm<Ti>() * xyz.Norm<Ti>()));
+	}
 	
 	XyzCoord<T>& operator+=(XyzCoord<T> xyz) {
 		x += xyz.x;
 		y += xyz.y;
-        z += xyz.z;
+        	z += xyz.z;
 		return this;
 	}
 	
-    XyzCoord<T>& operator-=(XyzCoord<T> xyz) {
+    	XyzCoord<T>& operator-=(XyzCoord<T> xyz) {
 		x -= xyz.x;
 		y -= xyz.y;
-        z -= xyz.z;
+        	z -= xyz.z;
 		return this;
 	}
 	
 	template <class Ti> inline XyzCoord<T>& operator*=(Ti integer_v) {
 		static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        x *= integer_v;
-        y *= integer_v;
-        z *= integer_v;
-        return this;
+        	x *= integer_v;
+        	y *= integer_v;
+        	z *= integer_v;
+        	return this;
 	}
 
-    template <class Ti> inline XyzCoord<T>& operator/=(Ti integer_v) {
+   	template <class Ti> inline XyzCoord<T>& operator/=(Ti integer_v) {
 		static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        x /= integer_v;
-        y /= integer_v;
-        z /= integer_v;
-        return this;
+        	x /= integer_v;
+        	y /= integer_v;
+        	z /= integer_v;
+        	return this;
 	}
 
-    inline XyzCoord<T> operator+(XyzCoord<T> xyz)
-    {
-        return XyzCoord<T>(xyz.x + x, xyz.y + y, xyz.z + z);
-    }
+    	inline XyzCoord<T> operator+(XyzCoord<T> xyz) {
+        	return XyzCoord<T>(xyz.x + x, xyz.y + y, xyz.z + z);
+    	}
 
-    inline XyzCoord<T> operator-(XyzCoord<T> xyz)
-    {
-        return XyzCoord<T>(xyz.x - x, xyz.y - y, xyz.z - z);
-    }
+    	inline XyzCoord<T> operator-(XyzCoord<T> xyz) {
+        	return XyzCoord<T>(xyz.x - x, xyz.y - y, xyz.z - z);
+    	}
 
-    inline XyzCoord<T> operator*(XyzCoord<T> xyz)
-    {
-        return DotProduct(xyz);
-    }
+    	inline XyzCoord<T> operator*(XyzCoord<T> xyz) {
+        	return DotProduct(xyz);
+    	}
 
-    template <class Ti> inline XyzCoord<T>& operator* (Ti integer_v) {
+    	template <class Ti> inline XyzCoord<T>& operator* (Ti integer_v) {
 		static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        return XyzCoord<T>(x * integer_v, y * integer_v, z * integer_v);
+        	return XyzCoord<T>(x * integer_v, y * integer_v, z * integer_v);
 	}
 };
 template <class T> using XyzSize = XyzCoord<T>;
 template <class T> using Vector3D = XyzCoord<T>;
 
 
-void test()
-{
+void test() {
     XyCoord<float> d = XyCoord<float>(3.44, 25.5);
 }
