@@ -3,8 +3,7 @@
 
 template <class T> struct XyCoord {
 	static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this structure.");
-
-    T x, y;
+	T x, y;
 	XyCoord(T x, T y) {
 		this->x = x;
 		this->y = y;
@@ -15,10 +14,10 @@ template <class T> struct XyCoord {
 		return (Ti)sqrt(pow(x, 2) + pow(y, 2));
 	}
 
-    template <class Ti> virtual inline Ti DotProduct(XyCoord<T> xy) {
-        static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
-        return (x * xy.x) + (y * xy.y);
-    }
+	template <class Ti> virtual inline Ti DotProduct(XyCoord<T> xy) {
+        	static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
+        	return (x * xy.x) + (y * xy.y);
+    	}
 
     template <class Ti> virtual inline Ti GetAngleBetween(XyCoord<T> xy) {
         static_assert(std::numeric_limits<T>::is_bounded, "Only an integer type can be used inside this method.");
