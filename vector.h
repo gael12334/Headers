@@ -36,7 +36,7 @@ template <class T> struct XyCoord {
         	static_assert(std::numeric_limits<T>::is_bounded, "Only an numerical type can be used inside this method.");
 		if(au) 
 			return (Ti)(acos(DotProduct<Ti>(xy) / (Norm<Ti>() * xy.Norm<Ti>())) * 180) / 3.14159265359;
-        	return (ti)acos(DotProduct<Ti>(xy) / (Norm<Ti>() * xy.Norm<Ti>()));
+        	return (Ti)acos(DotProduct<Ti>(xy) / (Norm<Ti>() * xy.Norm<Ti>()));
 	}
 	
 	inline virtual XyCoord<T>& Normalise() {
