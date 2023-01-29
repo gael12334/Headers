@@ -67,7 +67,7 @@
 </tbody>
 </table>
 </li>
-<li>unite: L'unit&eacute; de la quantit&eacute; de pr&eacute;cipitation.
+<li>unite: L'unit&eacute; de la quantit&eacute; de pr&eacute;cipitation.<br />
 <table style="border-collapse: collapse; width: 100%; height: 36px;" border="1">
 <tbody>
 <tr style="height: 18px;">
@@ -85,6 +85,34 @@
 </tbody>
 </table>
 </li>
+<li>test1
+<ul>
+<li>test2
+<ul>
+<li>test3
+<ul>
+<li>test4</li>
+<li>
+<table style="border-collapse: collapse; width: 100%; height: 36px;" border="1">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 50%; height: 18px;">##########</td>
+<td style="width: 50%; height: 18px;">11111111111111111</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 50%; height: 18px;">#</td>
+<td style="width: 50%; height: 18px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&nbsp;</li>
 </ul>
 </li>
 </ul>
